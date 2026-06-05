@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        char arr1[] = new char[n];
+        char arr2[] = new char[n];
+
+        for (int i = 0; i < n; i++) {
+            arr1[i] = sc.next().charAt(0);
+        }
+        for (int j = 0; j < n; j++) {
+            arr2[j] = sc.next().charAt(0);
+        }
+
+        char common[] = new char[n];
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            boolean alreadyAdded = false;
+            for (int k = 0; k < count; k++) {
+                if (common[k] == arr1[i]) {
+                    alreadyAdded = true;
+                    break;
+                }
+            }
+            if (alreadyAdded) continue;
+
+            for (int j = 0; j < n; j++) {
+                if (arr1[i] == arr2[j]) {
+                    common[count++] = arr1[i];
+                    break;
+                }
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Data Not Found");
+        } else {
+            System.out.print("The Common data are ");
+            for (int i = 0; i < count; i++) {
+                System.out.print(common[i]);
+                if (i < count - 1) {
+                    System.out.print(" ");
+                }
+            }
+        }
+    }
+}
