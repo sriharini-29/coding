@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc= new Scanner(System.in);
+       int n= sc.nextInt();
+       int arr[]=new int[n];
+       for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+       }
+       System.out.print("The Perfect Square Values are");
+       int c=0,sum=0;;
+       for(int i=0;i<n;i++){
+        for( int j=0;j<=arr[i];j++){
+         int mul=j*j;
+            if(mul==arr[i]){
+                c++;
+           System.out.print(" "+ arr[i]);
+           sum+=arr[i];
+            }
+        }
+       }System.out.println();
+        System.out.println("The Number of Perfect Squares are "+c);
+        System.out.print("The Sum of Perfect Square is "+sum);
+    }
+}
